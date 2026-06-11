@@ -1,1 +1,0 @@
-# jmo-worldcup-predictions-2026.
