@@ -225,7 +225,7 @@ function renderPredictions(){
       const isPartial=hasResult&&typeof pts==='number'&&pts>0&&!isFull;
       const isWrong=hasResult&&typeof pts==='number'&&pts===0;
       let cls='mc'+(isFull?' correct':isPartial?' partial':isWrong?' wrong':' pending')+(m.golden?' golden':'');
-      const r32Tag = m.is_r32 ? `<span style="font-size:8px;color:var(--purple,#b07ad6);background:rgba(160,100,220,.12);border-radius:3px;padding:1px 4px;margin-left:4px">R32</span>` : m.is_l16 ? `<span style="font-size:8px;color:#4a9eff;background:rgba(74,158,255,.12);border-radius:3px;padding:1px 4px;margin-left:4px">L16</span>` : `<span style="font-size:8px;color:var(--purple,#b07ad6);background:rgba(160,100,220,.12);border-radius:3px;padding:1px 4px;margin-left:4px">R32</span>` : '';
+      const r32Tag = m.is_r32 ? `<span style="font-size:8px;color:var(--purple,#b07ad6);background:rgba(160,100,220,.12);border-radius:3px;padding:1px 4px;margin-left:4px">R32</span>` : m.is_l16 ? `<span style="font-size:8px;color:#4a9eff;background:rgba(74,158,255,.12);border-radius:3px;padding:1px 4px;margin-left:4px">L16</span>` : '';
       return`<div class="${cls}">
         <div class="mc-no">#${m.no}${r32Tag}</div>
         <div class="mc-game"><div class="mc-teams">${esc(m.home)} v ${esc(m.away)}</div>${(m.is_r32||m.is_l16)&&m.result?`<div style="font-size:10px;color:var(--muted);margin-top:2px">${esc(m.result)} won (${esc(m.period||'?')})</div>`:(m.home_score!==null&&m.home_score!==undefined?`<div style="font-size:10px;color:var(--muted);margin-top:2px">${m.home_score}–${m.away_score}</div>`:'')}</div>
